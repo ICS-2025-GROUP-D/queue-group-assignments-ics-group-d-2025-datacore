@@ -1,11 +1,13 @@
-# FINAL TRIGGER BY 192566
+# FINAL SUBMISSION - updated by 192566
+
 import threading
+
 class PrintQueueManager:
     def __init__(self, capacity=10):
         self.queue = []
         self.capacity = capacity
         self.lock = threading.Lock()
-    
+
     def enqueue_job(self, user_id, job_id, priority):
         with self.lock:
             if len(self.queue) < self.capacity:
@@ -29,7 +31,7 @@ class PrintQueueManager:
 
         for job in jobs:
             t = threading.Thread(
-                target=self.enqueue_job, 
+                target=self.enqueue_job,
                 args=(job['user_id'], job['job_id'], job['priority'])
             )
             threads.append(t)
@@ -39,20 +41,9 @@ class PrintQueueManager:
             t.join()
 
     def show_status(self):
+        """
+        Prints current queue state.
+        """
         print("\nQueue Status:")
         for i, job in enumerate(self.queue):
             print(f"{i + 1}: {job}")
-
-# Example usage:
-if __name__ == "__main__":
-    pq_manager = PrintQueueManager(capacity=5)
-
-    # Simultaneous job submissions
-    jobs_to_submit = [
-        {'user_id': 'U1', 'job_id': 'J101', 'priority': 2},
-        {'user_id': 'U2', 'job_id': 'J102', 'priority': 3},
-        {'user_id': 'U3', 'job_id': 'J103', 'priority': 1}
-    ]
-
-    pq_manager.handle_simultaneous_submissions(jobs_to_submit)
-    pq_manager.show_status()
