@@ -17,10 +17,11 @@ class PrintQueueManager:
         pass  # Module 3
 
     def handle_simultaneous_submissions(self, jobs):
+
         pass  # Module 4
 
     def tick(self):
-        pass  # Module 5
+         pass     # Module 5
 
     def show_status(self):
         pass  # Module 6
