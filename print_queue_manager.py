@@ -1,90 +1,49 @@
-class Job:
-    def __init__(self, user_id, job_id, priority):
-        self.user_id = user_id
-        self.job_id = job_id
-        self.priority = self.priority_level(priority)
-        self.waiting_time = 0
+# FINAL SUBMISSION - updated by 192566
 
-    def priority_level(self, label):
-        levels = {"High": 1, "Medium": 2, "Low": 3}
-        return levels.get(label, 3)
+import threading
 
-    def __str__(self):
-        return f"UserID: {self.user_id}, JobID: {self.job_id}, Priority: {self.priority}, Waiting Time: {self.waiting_time}"
-
-
-class PriorityManager:
-    def update_priority(self, job, boost=1):
-        old_priority = job.priority
-        job.priority = max(1, job.priority - boost)  # Boost priority (lower value = higher)
-        print(f"Priority Boosted: Job {job.job_id} {old_priority} → {job.priority}")
-
-
-class JobQueues:
-    def __init__(self, capacity):
+class PrintQueueManager:
+    def __init__(self, capacity=10):
+        self.queue = []
         self.capacity = capacity
-        self.queues = []
+        self.lock = threading.Lock()
 
-    def enqueue(self, job):
-        if len(self.queues) < self.capacity:
-            self.queues.append(job)
-            print(f"Enqueued: {job}")
-        else:
-            print("Queue is Full!")
+    def enqueue_job(self, user_id, job_id, priority):
+        with self.lock:
+            if len(self.queue) < self.capacity:
+                job = {
+                    'user_id': user_id,
+                    'job_id': job_id,
+                    'priority': priority,
+                    'waiting_time': 0
+                }
+                self.queue.append(job)
+                print(f"Enqueued: {job}")
+            else:
+                print("Queue is full. Cannot add job.")
 
-    def dequeue(self):
-        if not self.queues:
-            print("Queue is empty")
-            return None
+    def handle_simultaneous_submissions(self, jobs):
+        """
+        Accepts a list of job dictionaries with keys: user_id, job_id, priority
+        Submits them concurrently using threads.
+        """
+        threads = []
 
-        self.queues.sort(key=lambda x: x.priority)
-        removed = self.queues.pop(0)
-        print(f"Dequeued: {removed}")
-        return removed
+        for job in jobs:
+            t = threading.Thread(
+                target=self.enqueue_job,
+                args=(job['user_id'], job['job_id'], job['priority'])
+            )
+            threads.append(t)
+            t.start()
 
-    def applying_age(self, threshold=5):
-        pm = PriorityManager()
-        for job in self.queues:
-            job.waiting_time += 1
-            if job.waiting_time >= threshold:
-                print(f"Job {job.job_id} exceeded waiting time threshold.")
-                pm.update_priority(job)
+        for t in threads:
+            t.join()
 
-    def display(self):
-        print("\nCurrent Queue:")
-        if not self.queues:
-            print("Queue is empty.")
-        else:
-            for job in sorted(self.queues, key=lambda x: x.priority):
-                print(job)
-
-
-if __name__ == "__main__":
-    queues = JobQueues(capacity=3)
-
-    # Create jobs
-    jobs = [
-        Job("user01", "job101", "High"),
-        Job("user02", "job102", "Low"),
-        Job("user03", "job103", "Medium")
-    ]
-
-    # Enqueue jobs
-    for job in jobs:
-        queues.enqueue(job)
-
-    queues.display()
-
-    # Simulate waiting
-    print("\n-- Applying Aging --")
-    for i in range(3):  # Simulate 3 time steps
-        queues.applying_age(threshold=3)
-
-    queues.display()
-
-    # Dequeue one and enqueue a new one to maintain capacity
-    print("\n-- Dequeue and Enqueue --")
-    queues.dequeue()
-    queues.enqueue(Job("user04", "job104", "Low"))
-
-    queues.display()
+    def show_status(self):
+        """
+        Prints current queue state.
+        """
+        print("\nQueue Status:")
+        for i, job in enumerate(self.queue):
+            print(f"{i + 1}: {job}")
